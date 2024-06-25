@@ -1,0 +1,54 @@
+.button-container {
+    padding: 0vw;
+    position: relative;
+}
+
+.button {
+    background-color: rgb(59, 130, 187);
+    border-radius: 0.5vw;
+    color: #eeeeee;
+    text-align: center;
+    font-size: 1.15vw;
+    padding: 0.4vw;
+    width: 10vw;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 0.81vw;
+    display: inline-block;
+}
+
+.button:hover {
+    background-color: #4898D5;
+}
+
+.array-container {
+    display: flex;
+    justify-content: center;
+    min-height: 2vw;
+}
+
+.array-bar {
+    width: 2vw;
+    background-color: rgb(255, 255, 255);
+    display: inline-flex;
+    justify-content: space-around;
+}
+
+.grid-container {
+    padding-top: 17vw;
+}
+.grid-box {
+    width: 5vw;
+    height: 5vw;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    line-height: 5vw;
+    vertical-align: middle; 
+}
