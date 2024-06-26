@@ -8,9 +8,14 @@ export default class HashingVisualizer extends React.Component {
 
         this.state = {
             array: [],
-            grid: [],
-            size: 0
+            grid: []
         };
+
+        this.handleDropdownChange = this.handleDropdownChange.bind(this);
+    }
+
+    handleDropdownChange(e) {
+        this.setState({collisionResolution: e.target.value});
     }
 
     componentDidMount() {
@@ -20,11 +25,10 @@ export default class HashingVisualizer extends React.Component {
     resetArray() {
         const array = [];
         const grid = getInitialGrid();
-        const size = 0;
         for (let i = 0; i < 10; i++) {
             array.push(randomIntFromInterval(0, 99)); // generates random ints from 0 to 99
         }
-        this.setState({array, grid, size});
+        this.setState({array, grid});
     }
 
     insertElement() {
@@ -43,18 +47,15 @@ export default class HashingVisualizer extends React.Component {
         const hash1 = index % 10; // 10 is table size
         const hash2 = 7 - (index % 7); // 7 is largest prime smaller than table size
         while(true) { // FIXME: Add dropdown for different coll res techniques
-            // LINEAR PROBING
-            //index = (index + 1) % 10; // increment index and mod 10 to remove out of bounds values
-
-            /* QUADRATIC PROBING
+            if(this.state.collisionResolution === "linear") { // LINEAR PROBING
+                index = (index + 1) % 10; // increment index and mod 10 to remove out of bounds values
+            } else if(this.state.collisionResolution === "quad") { // QUADRATIC PROBING
                 count++; // count needs to be 1 before checking for quadratic
                 index = (startingVal + (count ** 2)) % 10; // increment index by 1, then 4, then 9, etc.
-            */
-
-            /* DOUBLE HASHING
+            } else if(this.state.collisionResolution === "double") { // DOUBLE HASHING
                 index = (hash1 + (count * hash2)) % 10;
                 count++;
-            */
+            }
            
             if(grid[index] === "") {
                 grid[index] = value;
@@ -98,6 +99,14 @@ export default class HashingVisualizer extends React.Component {
                 <div className="button-container">
                     <button className="button" onClick={() => this.resetArray()}>Reset Queue</button>
                     <button className="button" onClick={() => this.insertElement()}>Insert Element</button>
+                </div>
+                <div className="dropdown-container">
+                    <select value={this.state.collisionResolution}
+                    onChange={this.handleDropdownChange}>
+                        <option value="linear">Linear Probing</option>
+                        <option value="quad">Quadratic Probing</option>
+                        <option value="double">Double Hashing</option>
+                    </select>
                 </div>
                 <div className="grid-container">
                     {grid.map((value, idx) => (
