@@ -8,7 +8,8 @@ export default class HashingVisualizer extends React.Component {
 
         this.state = {
             array: [],
-            grid: []
+            grid: [],
+            collisionResolution: "linear"
         };
 
         this.handleDropdownChange = this.handleDropdownChange.bind(this);
@@ -46,7 +47,7 @@ export default class HashingVisualizer extends React.Component {
         const startingVal = index;
         const hash1 = index % 10; // 10 is table size
         const hash2 = 7 - (index % 7); // 7 is largest prime smaller than table size
-        while(true) { // FIXME: Add dropdown for different coll res techniques
+        while(true) {
             if(this.state.collisionResolution === "linear") { // LINEAR PROBING
                 index = (index + 1) % 10; // increment index and mod 10 to remove out of bounds values
             } else if(this.state.collisionResolution === "quad") { // QUADRATIC PROBING
