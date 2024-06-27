@@ -1,3 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.array {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.array-container {
+    display: flex;
+    justify-content: center;
+    min-height: 2vw;
+    padding-top: 1vw;
+    width: 100%;
+}
+
+.array-bar {
+    width: 3vw;
+    font-size: 2vw;
+    min-height: 3vw;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.dropdown-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    padding: 1vw;
+    min-height: 2vw;
+}
+
+.dropdown-container select {
+    font-size: 2vw;
+}
+
 .button-container {
     padding: 0vw;
     position: relative;
@@ -8,7 +54,7 @@
     border-radius: 0.5vw;
     color: #eeeeee;
     text-align: center;
-    font-size: 1.15vw;
+    font-size: 2vw;
     padding: 0.4vw;
     width: 10vw;
     -webkit-transition: all 0.5s;
@@ -24,31 +70,58 @@
     background-color: #4898D5;
 }
 
-.array-container {
-    display: flex;
-    justify-content: center;
-    min-height: 2vw;
-}
-
-.array-bar {
-    width: 2vw;
-    background-color: rgb(255, 255, 255);
-    display: inline-flex;
-    justify-content: space-around;
-}
-
 .grid-container {
     padding-top: 17vw;
 }
 .grid-box {
-    width: 5vw;
-    height: 5vw;
+    width: 4.5vw;
+    height: 4.5vw;
     background-color: rgb(255, 255, 255);
     border: 1px solid black;
+    font-size: x-large;
     display: inline-flex;
     justify-content: space-around;
     align-items: center;
     text-align: center;
     line-height: 5vw;
     vertical-align: middle; 
+}
+
+.hash {
+    padding-top: 1vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.text-label {
+    background-color: #ffffff;
+    border: 1px solid black;
+    text-align: center;
+    height: 2vw;
+    line-height: 2vw;
+    font-size: 1.5vw;
+}
+
+.input {
+    background-color: #ffffff;
+    border: 1px solid black;
+    width: 2vw;
+    height: 2vw;
+    font-size: 1.5vw;
+}
+
+.hash-line {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5vw;
+}
+
+.hash2-output {
+    background-color: #ffffff;
+    border: 1px solid black;
+    text-align: center;
+    height: 2vw;
+    line-height: 2vw;
+    font-size: 1.5vw;
 }

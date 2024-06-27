@@ -1,0 +1,13 @@
+.info-panel {
+    background-color: #ffffff;
+    color: black;
+    width:25vw;
+    position: absolute;
+    border-radius: 0.5vw;
+    top: 0.85vw;
+    right: 1vw;
+    text-align: left;
+    padding: 1vw;
+    min-height: 9.6vw;
+    font-size: 1.4vw;
+  }
