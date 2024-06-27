@@ -41,10 +41,11 @@ export default class HashingVisualizer extends React.Component {
         const array = [];
         const grid = getInitialGrid();
         const info = [];
+        const isEmpty = true;
         for (let i = 0; i < 10; i++) {
             array.push(randomIntFromInterval(0, 99)); // generates random ints from 0 to 99
         }
-        this.setState({array, grid, info});
+        this.setState({array, grid, info, isEmpty});
     }
 
     insertElement() {
@@ -58,12 +59,13 @@ export default class HashingVisualizer extends React.Component {
     }
 
     resolveCollision(value, index, grid) {
-        let count = 1; // count starts at 1 for others
+        let count = 1; // count starts at 1 for linear & quadratic probing
         if(this.state.collisionResolution === "double") {
             count = 0; // count starts at 0 for double hashing
         }
 
         let info = [];
+        info.push(<div><p>Value {value} is assigned to key {index} via ({value} % {this.state.hash1})</p></div>);
 
         const startingVal = index;
         const hash1 = index % this.state.hash1; // default 10 for table size
@@ -74,7 +76,7 @@ export default class HashingVisualizer extends React.Component {
                 index = (index + 1); // increment index
                 if(index >= 10) {
                     index = index % 10; // mod 10 to remove out of bounds values
-                    info.push(<div><p>Collision {count}: Index + 1 was out of bounds, tried inserting at beginning index 0</p></div>);
+                    info.push(<div><p>Collision {count}: Index {previous} + 1 was out of bounds, tried inserting at beginning index 0</p></div>);
                 } else {
                     info.push(<div><p>Collision {count}: Tried inserting at index {previous} + 1 (index {index})</p></div>);
                 }
@@ -110,7 +112,7 @@ export default class HashingVisualizer extends React.Component {
                 info.push(<div><p> Inserted {value} at index {index}</p></div>);
                 break;
             } else if(count === 10) {
-                info.push(<div><p>Failed to insert; Value could not be accommodated in table</p></div>);
+                info.push(<div><p>Failed to insert; value could not be accommodated in table</p></div>);
             }
         }
         this.setState({info: info, isEmpty: false})
@@ -123,18 +125,20 @@ export default class HashingVisualizer extends React.Component {
     insert(value) {
         const {grid} = this.state;
         const index = this.setKey(value);
+        let info = [];
+
         if(grid[index] === "") {
             grid[index] = value;
             this.setState({grid});
             
-            let info = (<div><p> Inserted {value} at index {index} with no collisions</p></div>);
+            info.push(<div><p>Value {value} is assigned to key {index} via ({value} % {this.state.hash1})</p></div>);
+            info.push(<div><p>Inserted {value} at index {index} with no collisions</p></div>);
             this.setState({info: info, isEmpty: false});
         }
         else this.resolveCollision(value, index, grid);
     }
 
     render() { 
-        //  FIXME: Add descriptions/animations of hashing process
         const {array, grid} = this.state;
 
         return (

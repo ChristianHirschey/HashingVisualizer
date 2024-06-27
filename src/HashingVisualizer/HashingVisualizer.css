@@ -89,7 +89,8 @@
 
 .hash {
     padding-top: 1vw;
-    display: flex;
+    display: grid;
+    justify-items: center;
     flex-direction: column;
     align-items: flex-start;
 }
@@ -111,9 +112,14 @@
     font-size: 1.5vw;
 }
 
+.input#hash2 {
+    text-align: center;
+}
+
 .hash-line {
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-bottom: 0.5vw;
 }
 
