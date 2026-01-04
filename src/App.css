@@ -2,9 +2,23 @@
   position: absolute;
   margin: 0vw;
   text-align: center;
-  background-color: #c8d2f2;
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
   height: 100vh;
   width: 100vw;
+  overflow-x: hidden;
+}
+
+.App::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(88, 101, 242, 0.15) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .App-logo {

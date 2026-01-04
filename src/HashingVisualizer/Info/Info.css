@@ -1,13 +1,37 @@
 .info-panel {
-    background-color: #ffffff;
-    color: black;
-    width:25vw;
+    background: linear-gradient(145deg, rgba(30, 30, 50, 0.85), rgba(40, 40, 65, 0.85));
+    backdrop-filter: blur(15px);
+    color: #e0e0e0;
+    width: 28vw;
     position: absolute;
-    border-radius: 0.5vw;
-    top: 0.85vw;
-    right: 1vw;
+    border-radius: 16px;
+    border: 2px solid rgba(139, 135, 235, 0.3);
+    top: 2vw;
+    right: 2vw;
     text-align: left;
-    padding: 1vw;
-    min-height: 9.6vw;
-    font-size: 1.35vw;
+    padding: 1.5vw;
+    min-height: 12vw;
+    font-size: 1.1vw;
+    line-height: 1.6;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+
+  .info-panel:hover {
+    border-color: rgba(139, 135, 235, 0.5);
+    box-shadow: 0 12px 40px rgba(88, 101, 242, 0.3);
+  }
+
+  .info-panel p {
+    margin-bottom: 0.8vw;
+    color: #c4c9ff;
+  }
+
+  .info-panel div {
+    margin-bottom: 0.6vw;
+  }
+
+  .info-panel div:last-child {
+    margin-bottom: 0;
   }
