@@ -49,11 +49,16 @@ export default class HashingVisualizer extends React.Component {
     }
 
     insertElement() {
-        const {array} = this.state;
-        if(array.length > 0) { // ensure there is still a value left in queue
-            let element = array.shift(); // remove the first element from the array
-            this.setState({array: array}); // update the state with the new array
-            this.insert(element);
+        if(this.state.array.length > 0) { // ensure there is still a value left in queue
+            let element;
+            this.setState((prevState) => {
+                const newArray = [...prevState.array];
+                element = newArray.shift();
+                return {array: newArray};
+            }, () => {
+                // Use callback after setState completes
+                this.insert(element);
+            });
         }
         else alert("No more values left in queue!")
     }
@@ -106,8 +111,11 @@ export default class HashingVisualizer extends React.Component {
             }
 
             if(grid[index] === "") {
-                grid[index] = value;
-                this.setState({grid});
+                this.setState((prevState) => {
+                    const newGrid = [...prevState.grid];
+                    newGrid[index] = value;
+                    return {grid: newGrid};
+                });
 
                 info.push(<div><p> Inserted {value} at index {index}</p></div>);
                 break;
