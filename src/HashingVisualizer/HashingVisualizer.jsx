@@ -170,9 +170,6 @@ export default class HashingVisualizer extends React.Component {
                         <option className="dropdown-option" value="double">Double Hashing</option>
                     </select>
                 </div>
-                <div className="info-panel">
-                    <InfoPanel info={this.state.info} isEmpty={this.state.isEmpty} />
-                </div>
                 <div className="grid-container">
                     {grid.map((value, idx) => (
                         <div className="grid-box" key={idx}>
@@ -199,6 +196,9 @@ export default class HashingVisualizer extends React.Component {
                             value={this.state.hash2} onChange={this.handleHash2Change}></input>
                         </div>
                     )}
+                </div>
+                <div className="info-panel">
+                    <InfoPanel info={this.state.info} isEmpty={this.state.isEmpty} />
                 </div>
             </div>
         )

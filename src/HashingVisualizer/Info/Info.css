@@ -2,25 +2,45 @@
     background: linear-gradient(145deg, rgba(30, 30, 50, 0.85), rgba(40, 40, 65, 0.85));
     backdrop-filter: blur(15px);
     color: #e0e0e0;
-    width: 28vw;
-    position: absolute;
+    width: 80vw;
+    max-width: 1200px;
+    position: relative;
     border-radius: 16px;
     border: 2px solid rgba(139, 135, 235, 0.3);
-    top: 2vw;
-    right: 2vw;
     text-align: left;
     padding: 1.5vw;
-    min-height: 12vw;
+    min-height: 8vw;
+    margin: 3vw auto 2vw auto;
     font-size: 1.1vw;
     line-height: 1.6;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     transition: all 0.3s ease;
-    z-index: 10;
+    z-index: 1;
+    max-height: 40vh;
+    overflow-y: auto;
   }
 
   .info-panel:hover {
     border-color: rgba(139, 135, 235, 0.5);
     box-shadow: 0 12px 40px rgba(88, 101, 242, 0.3);
+  }
+
+  .info-panel::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .info-panel::-webkit-scrollbar-track {
+    background: rgba(30, 30, 50, 0.5);
+    border-radius: 10px;
+  }
+
+  .info-panel::-webkit-scrollbar-thumb {
+    background: rgba(139, 135, 235, 0.5);
+    border-radius: 10px;
+  }
+
+  .info-panel::-webkit-scrollbar-thumb:hover {
+    background: rgba(139, 135, 235, 0.7);
   }
 
   .info-panel p {
