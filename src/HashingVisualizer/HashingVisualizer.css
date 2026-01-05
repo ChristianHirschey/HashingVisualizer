@@ -158,11 +158,13 @@
 
 .grid-container {
     padding-top: 3vw;
-    display: grid;
-    grid-template-columns: repeat(10, 5vw);
+    display: flex;
+    flex-wrap: wrap;
     gap: 0.8vw;
     justify-content: center;
     animation: slideUp 0.8s ease-out;
+    max-width: 90vw;
+    margin: 0 auto;
 }
 
 @keyframes slideUp {
@@ -292,4 +294,67 @@
     padding: 0 1.5vw;
     margin-right: 1vw;
     box-shadow: 0 4px 15px rgba(88, 101, 242, 0.2);
+}
+
+.custom-input-container {
+    padding: 1.5vw 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+    width: 100%;
+}
+
+.custom-values-input {
+    background: rgba(30, 30, 50, 0.6);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(139, 135, 235, 0.4);
+    border-radius: 8px;
+    padding: 0.8vw 1.5vw;
+    font-size: 1.2vw;
+    color: #a8b4ff;
+    font-weight: 500;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 40vw;
+    max-width: 600px;
+}
+
+.custom-values-input:focus {
+    border-color: #8b87eb;
+    background: rgba(40, 40, 65, 0.8);
+    box-shadow: 0 0 0 3px rgba(139, 135, 235, 0.2);
+}
+
+.custom-values-input::placeholder {
+    color: rgba(168, 180, 255, 0.5);
+}
+
+.button-small {
+    background: linear-gradient(145deg, #5865f2, #7289da);
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.1vw;
+    padding: 0.8vw 1.5vw;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 0.5vw;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.button-small:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(88, 101, 242, 0.6);
+}
+
+.button-small:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(88, 101, 242, 0.4);
 }
